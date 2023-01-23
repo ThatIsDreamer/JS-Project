@@ -30,3 +30,39 @@
     width: 100px;
     transition: 1s;
 }
+.price
+{
+    font-size: 30px;
+    font-weight: bolder;
+
+}
+.cartwindow
+{
+    width: 550px;
+    height: 350px;
+    border-radius: 10px;
+    border: 2px solid rgba(124, 121, 121, 0.877);
+    position: fixed;
+    top: 100px;
+    right: 100px;
+    background-color: white;
+    overflow: scroll;
+    overflow-x: hidden;
+    opacity: 0;
+    z-index:0;
+}
+.line
+{
+    height: 1px;
+    border: 1px solid rgba(0, 0, 0, 0.877);
+    margin-bottom: 10px;
+}
+.cartwindow strong
+{
+    margin-left: 20px;
+}
+.head p
+{
+    display: inline-block;
+
+}

@@ -2,16 +2,26 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>LEGO</title>
   <!--Стартовые стили шаблона-->
   <link rel="stylesheet" href="css/starter.css">
   <!--Ваши стили-->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="img/index.png">
 </head>
 
 <body>
    <img src="img/index.png" class="legohead">
 	<!--НАЧАЛО Шапка-->
+	<div class="cartwindow">
+		<div class="head">
+			<p><strong>Корзина</strong></p>
+			<p style="margin-left: 250px; font-weight: bold;">Стоимсоть:</p> <p class="total">0</p> <p>₽</p>
+		</div>
+
+		<br>
+		<div class="line"></div>
+	</div>
   <header class="mainheader">
     <div class="container">
      
@@ -23,7 +33,7 @@
       		<li><a>О компании</a></li>
       		<li><a>Оставить заявку</a></li>
       		<li><a>Собери комплект</a></li>
-      		<li><img src="img/cart25.png"> 0</li>
+      		<li class="cartico"><img  style="display: inline-block;" src="img/cart25.png"> 0</li>
       	</ul>
       </nav>
      
@@ -132,21 +142,33 @@
       		<div class="product">
       			<img src="img/goods/1.png">
       			<h4>Пожарная машина</h4>
-      			<button><img src="img/cart16.png"></button>
+      			<p class="price">2560₽</p>
+				<button><img src="img/cart16.png"></button>
+				
+			
+				
       		</div>
       		<!--КОНЕЦ Товар №1-->
       		<!--НАЧАЛО Товар №2-->
-      		<div class="product">
+      		<div class="active product">
       			<img src="img/goods/2.jpg">
       			<h4>Гоночная машина</h4>
-      			<button><img src="img/cart16.png"></button>
+      			<p class="price">2560₽</p>
+				<button><img src="img/cart16.png"></button>
+				
+				
+				
       		</div>
       		<!--КОНЕЦ Товар №2-->
       		<!--НАЧАЛО Товар №3-->
       		<div class="product">
       			<img src="img/goods/3.jpg">
       			<h4>Попугай</h4>
-      			<button><img src="img/cart16.png"></button>
+      			<p class="price">2560₽</p>
+				<button><img src="img/cart16.png"></button>
+				
+				
+				
       		</div>
       		<!--КОНЕЦ Товар №3-->
       		
@@ -154,21 +176,32 @@
       		<div class="product">
       			<img src="img/goods/4.jpg">
       			<h4>Аэропорт</h4>
-      			<button><img src="img/cart16.png"></button>
+      			<p class="price">2560₽</p>
+				<button><img src="img/cart16.png"></button>
+				
+				
+				
       		</div>
       		<!--КОНЕЦ Товар №4-->
       		<!--НАЧАЛО Товар №5-->
       		<div class="product">
       			<img src="img/goods/5.jpg">
       			<h4>Вертолет</h4>
-      			<button><img src="img/cart16.png"></button>
+      			<p class="price">2560₽</p>
+				<button><img src="img/cart16.png"></button>
+				
+				
+				
+				
       		</div>
       		<!--КОНЕЦ Товар №5-->
       		<!--НАЧАЛО Товар №6-->
       		<div class="product">
       			<img src="img/goods/6.jpg">
       			<h4>Дом (красный)</h4>
-      			<button><img src="img/cart16.png"></button>
+      			<p class="price">2560₽</p>
+				<button><img src="img/cart16.png"></button>
+				
       		</div>
       		<!--КОНЕЦ Товар №6-->
       	</div>

@@ -97,10 +97,12 @@ section{
 .mainnav>ul li.active a{
 	text-decoration: underline;
 	color: #E22122;
+	transition: 500ms;
 }
 
 .mainnav>ul li img{
 	vertical-align: middle;
+	
 }
 
 
@@ -200,6 +202,9 @@ button{
 	padding: 15px;
 	border: 1px solid black;
 	margin-bottom: 30px;
+	opacity: 0;
+	transition: 1s;
+	margin-top: 100px;
 }
 .product>img{
 	width: 220px;

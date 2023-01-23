@@ -25,11 +25,69 @@ let products = document.querySelectorAll('.product')
 let goodsWarper = document.querySelector('.goods-wrapper')
 let titles = document.querySelectorAll('h2')
 let headers = document.querySelectorAll('li')
+let cartwindow = document.querySelector('.cartwindow')
+let carticon = document.querySelector('.cartico')
+let totalnum = document.querySelector(".total")
+
+let total = 0
+
+let items = ["Пожарная машина", "Гоночная машина", "Попугай", "Аэропорт", "Вертолет","Дом (красный)"]
+
+function updateTotal()
+{
+    totalnum.innerHTML = total
+}
+
+
+
+let vis = 0
+
+carticon.addEventListener('click', function () {
+
+    if (vis == 0)
+    {
+        vis = 1
+        cartwindow.style.zIndex = "99";
+
+    }
+        
+    else if (vis == 1)
+    {
+        cartwindow.style.zIndex = "0";
+        vis = 0
+    }
+        
+    cartwindow.style.opacity = vis
+    updateTotal()
+})
 
 
 
 
-for (let i = 0; i < headers.length; i++)
+function reveal() {
+    var reveals = document.querySelectorAll(".product");
+  
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+  
+      if (elementTop < windowHeight - elementVisible) {
+          reveals[i].style.opacity = 1
+          reveals[i].style.marginTop = "0px"
+      } else {
+        reveals[i].style.marginTop = "150px"
+        reveals[i].style.opacity = 0
+      }
+    }
+  }
+
+
+
+window.addEventListener("scroll", reveal);
+
+
+for (let i = 0; i < headers.length - 1; i++)
 {
     headers[i].addEventListener('click', function () {
         if (titles[i].getBoundingClientRect().top <= 83)
@@ -100,6 +158,15 @@ let timerId = setTimeout(function () {
 for (let i = 0; i < addToCartBtns.length; i++)
 {
     addToCartBtns[i].addEventListener('click', function () {
+        total += 2560
+        updateTotal()
+        tempEl = document.createElement('div')
+        tempEl.style.display = 'inline-block'
+        tempEl.style.width = '550px'
+        tempEl.innerHTML += '<img style="width: 100px; height: 100px; margin-right: 100px;" src="img/goods/' + (i + 1) + '.jpg">'
+        tempEl.innerHTML += '<h4 style="display:inline-block;  position: relative; bottom: 40px;">' + items[i] + '</h4>'
+        tempEl.innerHTML += "<div style='height: 1px;border: 1px solid rgba(0, 0, 0, 0.877);margin-bottom: 10px;'><div/>"
+        cartwindow.appendChild(tempEl)
         itemnum = parseInt(itemnum) + 1
         itemobj.innerHTML = '<img src="img/cart25.png"> ' + itemnum
     })    
@@ -110,6 +177,7 @@ for (let i = 0; i < addToCartBtns.length; i++)
 
 
 right.addEventListener('click', function () {
+    
     cardindex += 1;
     if (cardindex > 4)
     {
@@ -120,6 +188,7 @@ right.addEventListener('click', function () {
     seriestitle.innerHTML = cards[cardindex][0]
 })
 left.addEventListener('click', function () {
+    
     cardindex -= 1;
     if (cardindex < 0)
     {
@@ -133,6 +202,7 @@ left.addEventListener('click', function () {
 //SCROLL
 
 window.addEventListener("scroll", function () {
+
     linebar.style.width = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight) * 100 + "%"
     
     if (window.scrollY > box.scrollHeight/4)
@@ -171,19 +241,28 @@ window.addEventListener("scroll", function () {
    
 
     if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-        for (let i = 0; i < 6; i++) {
+        for (let i = 1; i < 7; i++) {
             let newEl = document.createElement('div')
             let btnEl = document.createElement('button')
             btnEl.addEventListener('click', function () {
+                total += 2560
+                updateTotal()
+                tempEl = document.createElement('div')
+                tempEl.style.display = 'inline-block'
+                tempEl.style.width = '550px'
+                tempEl.innerHTML += '<img style="width: 100px; height: 100px; margin-right: 100px;" src="img/goods/' + i + '.jpg">'
+                tempEl.innerHTML += '<h4 style="display:inline-block;  position: relative; bottom: 40px;">' + items[i - 1] + '</h4>'
+                tempEl.innerHTML += "<div style='height: 1px;border: 1px solid rgba(0, 0, 0, 0.877);margin-bottom: 10px;'><div/>"
+                cartwindow.appendChild(tempEl)
                 itemnum = parseInt(itemnum) + 1
                 itemobj.innerHTML = '<img src="img/cart25.png"> ' + itemnum
-
             })
             btnEl.innerHTML = '<img src="img/cart16.png">'
             newEl.classList.add('product')
-            newEl.innerHTML += '<img src="img/goods/1.png">'
-            newEl.innerHTML += '<h4>Пожарная машина</h4>'
-            newEl.appendChild(btnEl)
+            newEl.innerHTML += '<img src="img/goods/'+ i +'.jpg">'
+            newEl.innerHTML += '<h4>' + items[i - 1] + '</h4>'
+            newEl.innerHTML += '<p class="price">2560₽</p>'
+            newEl.appendChild(btnEl)    
             goodsWarper.appendChild(newEl)
             
         
